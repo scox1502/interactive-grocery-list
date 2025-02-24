@@ -4,6 +4,7 @@ while True:
     # Define a function to add an item to the list
     while True:
         amount_of_items = int(input("how many items do you plan on getting? "))
+        
         if amount_of_items > 0:
             break
       
@@ -31,7 +32,7 @@ while True:
     
 while amount_of_items > 0:
     
-    choice = input("Would you like to see your list, add to your list, or delete any idem's? [view/delete/add] ").strip().lower()
+    choice = input("Would you like to see your list, add to your list, delete any item's, or would you like to exit? [view/delete/add/exit] ").strip().lower()
     if choice == "view":
         print(f"You have: {item_list}")
 
@@ -53,6 +54,10 @@ while amount_of_items > 0:
         amount_of_items -= 1
         print(f"Added '{item}'. you have {amount_of_items} items left.")
 
+    elif choice == "exit":
+        print("thank you for orgizing with us")
+        break
+
         
     else:
         print("that is not an option")
@@ -61,7 +66,7 @@ while amount_of_items > 0:
 if amount_of_items == 0:
     print("you have used up all your slots")
     print(f"Your final list of items: {item_list}")
-    choice = input("Would you like to see your list, add to your list, or delete any idem's? [view/delete/add] ").strip().lower()
+    choice = input("Would you like to see your list, add to your list, or delete any idem's? [view/delete/exit] ").strip().lower()
     
     if choice == "view":
         print(f"You have: {item_list}")
@@ -72,8 +77,12 @@ if amount_of_items == 0:
             item_list.remove(delete_item)
             amount_of_items += 1
             print(f"Deleted '{delete_item}' from the list. you have {amount_of_items} item's left.")
-            else:
-            print(f"'{delete_item}' not found in the list.")
+        else:
+            print(f"'{delete_item}' not found in the list.").strip()
+        
+    elif choice == "exit":
+        print("thank you for orgizing with us")
+        
 
 
 
