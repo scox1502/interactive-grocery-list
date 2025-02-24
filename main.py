@@ -8,8 +8,8 @@ while True:
             break
       
 
-        if amount_of_items > 99:
-            choice = input(f"damn that's a lot of stuff you sure? [y/n]")
+        elif amount_of_items > 99:
+            choice = input(f"damn that's a lot of stuff you sure? [y/n] ").strip().lower()
             if choice == "y":
                 break
             else:
@@ -17,29 +17,45 @@ while True:
         
         elif amount_of_items == 0:
             print("man put somthing in there now")
-            choice = input(f" well are you even getting something? [y/y]")
+            choice = input(f" well are you even getting something? [y/y] ").strip().lower()
             if choice == "y":
                 pass
 
             
 
-    choice = input(f"you want {amount_of_items} amount of idems? [y/n]").strip().lower()
+    choice = input(f"you want {amount_of_items} idem's? [y/n] ").strip().lower()
     if choice == "y":
         break
     else:
             pass
     
 while amount_of_items > 0:
-    item = input(f"What is the {amount_of_items}th item you want to add? ")
-    item_list.append(item)  # Add the item to the list
-    amount_of_items -= 1
-    print(f"Added '{item}'. {amount_of_items} items left.")
-    choice = input("Would you like to see your list or delete any idems? [view/delete]").strip().lower()
+    
+    choice = input("Would you like to see your list, add to your list, or delete any idem's? [view/delete/add] ").strip().lower()
     if choice == "view":
         print(f"You have: {item_list}")
-    if choice == "delete":
+
+
+    elif choice == "delete":
+        delete_item = input(f"type out what item would you like to delete? {item_list} ").strip()
+        if delete_item in item_list:
+            item_list.remove(delete_item)
+            amount_of_items += 1
+            print(f"Deleted '{delete_item}' from the list. you have {amount_of_items} item's left.")
+        else:
+            print(f"'{delete_item}' not found in the list.")
+
+
+
+    elif choice == "add":
+        item = input(f"What is the {amount_of_items}th item you want to add? ")
+        item_list.append(item)  # Add the item to the list
+        amount_of_items -= 1
+        print(f"Added '{item}'. you have {amount_of_items} items left.")
+
         
     else:
+        print("that is not an option")
         pass
     
 if amount_of_items == 0:
