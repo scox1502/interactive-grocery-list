@@ -61,6 +61,21 @@ while amount_of_items > 0:
 if amount_of_items == 0:
     print("you have used up all your slots")
     print(f"Your final list of items: {item_list}")
+    choice = input("Would you like to see your list, add to your list, or delete any idem's? [view/delete/add] ").strip().lower()
+    
+    if choice == "view":
+        print(f"You have: {item_list}")
+    
+    elif choice == "delete":
+        delete_item = input(f"type out what item would you like to delete? {item_list} ").strip()
+        if delete_item in item_list:
+            item_list.remove(delete_item)
+            amount_of_items += 1
+            print(f"Deleted '{delete_item}' from the list. you have {amount_of_items} item's left.")
+            else:
+            print(f"'{delete_item}' not found in the list.")
+
+
 
 # Append the item to the list and return it
 
